@@ -18,6 +18,6 @@ object WorldManager : Listener {
 
     fun teleportLobby(player: Player) = teleportPlayerToWorld(player, mainLobby)
     fun teleportBuild(player: Player) = teleportPlayerToWorld(player, buildingWorld)
-    fun teleport
+    fun teleportPvp(player: Player) = teleportPlayerToWorld(player, PvpWorld)
 
 }

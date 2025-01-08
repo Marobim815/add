@@ -11,7 +11,7 @@ object EventListeners : Listener {
 
     @EventHandler
     fun onBlockPlace(event: BlockPlaceEvent) {
-        val player = event.player
+        // val player = event.player
         val block = event.block
 
         if (block.type == Material.DIAMOND_BLOCK) {

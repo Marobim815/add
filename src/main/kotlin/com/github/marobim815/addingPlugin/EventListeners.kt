@@ -1,24 +1,22 @@
 package com.github.marobim815.addingPlugin
 
-import org.bukkit.NamespacedKey
+import org.bukkit.Material
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
-import org.bukkit.event.player.PlayerInteractEvent
-import org.bukkit.persistence.PersistentDataType
+import org.bukkit.event.block.BlockPlaceEvent
 
 object EventListeners : Listener {
+
+    private const val VILLAGE_RANGE = 10 * 16
+
     @EventHandler
-    fun onInteract(event: PlayerInteractEvent) {
+    fun onBlockPlace(event: BlockPlaceEvent) {
         val player = event.player
-        val action = event.action
-        val item = player.inventory.itemInMainHand
-        val meta = item.itemMeta ?: return
+        val block = event.block
 
-        val dataContainer = meta.persistentDataContainer
-        val key = NamespacedKey(AddingPlugin(), "custom_item")
-        // 데이터가 존재하는지 확인하고 불러오기
-        if (dataContainer.has(key, PersistentDataType.STRING)) {
-
+        if (block.type == Material.DIAMOND_BLOCK) {
+            val villageLocation = block.location
+            // VillageManager.createVillage(TeamManager.getTeamName(player), block.location)
         }
     }
 }
